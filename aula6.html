@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CP1 PedroHMello</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://docs.opencv.org/4.x/opencv.js"></script>
+</head>
+
+<body>
+
+  <header class="fiap-header">
+    <div class="fiap-header__brand">
+      <span class="fiap-header__logo">FIAP</span>
+      <span class="fiap-header__divider"></span>
+      <span class="fiap-header__title">Visão Computacional Aplicada</span>
+    </div>
+    <span class="fiap-header__tag">Checkpoint 1</span>
+  </header>
+
+  <main class="container">
+
+    <section class="intro">
+      <div class="badge-row">
+        <span class="badge">cv.GaussianBlur</span>
+        <span class="badge">Máscaras circulares</span>
+        <span class="badge">Efeito retrato</span>
+      </div>
+      <h1>Visão Computacional — Efeito retrato</h1>
+      <p>Combine desfoque gaussiano, blur e máscaras circulares para simular profundidade de campo em uma fotografia.</p>
+    </section>
+
+    <section class="stage-panel">
+      <h2>Processamento da imagem</h2>
+      <div class="upload-row">
+        <input type="file" id="inputImagem" accept="image/*" />
+        <span class="hint">Dica: use a imagem de exemplo em <code>img/flor.jpg</code> (envie o arquivo) ou uma foto
+          sua.</span>
+      </div>
+      <div class="canvas-grid">
+        <div class="canvas-card">
+          <h3>Original</h3><canvas id="canvasOriginal"></canvas>
+        </div>
+        <div class="canvas-card"><h3>1. GaussianBlur</h3><canvas id="canvasGlaussianBlur"></canvas></div>
+        <div class="canvas-card"><h3>2. Blur</h3><canvas id="canvasSaida"></canvas></div>
+        <div class="canvas-card"><h3>3. Máscara menor + original</h3><canvas id="canvasMascaraMenor"></canvas></div>
+        <div class="canvas-card"><h3>4. Máscara maior + GaussianBlur</h3><canvas id="canvasMascaraMaior"></canvas></div>
+        <div class="canvas-card"><h3>5. Blur + máscara maior</h3><canvas id="canvasFundoFocado"></canvas></div>
+        <div class="canvas-card"><h3>6. Resultado final</h3><canvas id="canvasRetrato"></canvas></div>
+      </div>
+      <div class="controls">
+        <button id="btnContraste" class="btn btn--primary" disabled>Gerar efeito retrato</button>
+      </div>
+      <p id="status" class="status">Carregando OpenCV.js...</p>
+    </section>
+
+    <section class="exercicios">
+      <h2>Exercícios propostos</h2>
+      <ol>
+        <li>Reproduza o exemplo com uma imagem à sua escolha.</li>
+        <li>Adicione um segundo botão que aplique <code>cv.Canny()</code> para detectar bordas na imagem.</li>
+        <li>Mostre na tela a largura e a altura da imagem carregada (<code>src.cols</code> / <code>src.rows</code>).
+        </li>
+        <li>(Desafio) Use <code>getUserMedia()</code> para capturar um quadro da webcam em vez de fazer upload.</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer class="fiap-footer">
+    <p>Material didático — Visão Computacional Aplicada | FIAP</p>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+
+</html>
